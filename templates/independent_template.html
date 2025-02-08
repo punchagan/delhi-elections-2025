@@ -22,7 +22,8 @@
       </thead>
       <tbody>
         {% for constituency, candidates in candidates.items() %} {% for
-        candidate in candidates %} {% if candidate['Party'] == 'Independent' %}
+        candidate in candidates %} {% if candidate['Party'] == 'Independent' or
+        candidate['Party'] == 'None of the Above' %}
         <tr>
           <td>
             <a href="{{ candidate['Constituency URL'] }}"
