@@ -2,3 +2,4 @@ aiohttp
 asyncio
 bs4
 jinja2
+pytz
