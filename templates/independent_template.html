@@ -24,7 +24,11 @@
         {% for constituency, candidates in candidates.items() %} {% for
         candidate in candidates %} {% if candidate['Party'] == 'Independent' %}
         <tr>
-          <td>{{ candidate['Constituency'] }}</td>
+          <td>
+            <a href="{{ candidate['Constituency URL'] }}"
+              >{{ candidate['Constituency'] }}</a
+            >
+          </td>
           <td>{{ candidate['Candidate'] }}</td>
           <td>{{ candidate['EVM Votes'] }}</td>
           <td>{{ candidate['Postal Votes'] }}</td>

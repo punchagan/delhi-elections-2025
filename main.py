@@ -63,6 +63,7 @@ async def fetch_results(session, num):
                     results.append(
                         {
                             "Constituency": constituency_name,
+                            "Constituency URL": url,
                             "Candidate": candidate_name,
                             "Party": party,
                             "EVM Votes": evm_votes,
