@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Independent Candidates - Election Results</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css" />
+  </head>
+  <body>
+    <h1>Independent Candidates - Election Results</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Constituency</th>
+          <th>Candidate</th>
+          <th>EVM Votes</th>
+          <th>Postal Votes</th>
+          <th>Total Votes</th>
+          <th>Vote %</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for constituency, candidates in candidates.items() %} {% for
+        candidate in candidates %}
+        <tr>
+          <td>{{ candidate['Constituency'] }}</td>
+          <td>{{ candidate['Candidate'] }}</td>
+          <td>{{ candidate['EVM Votes'] }}</td>
+          <td>{{ candidate['Postal Votes'] }}</td>
+          <td>{{ candidate['Total Votes'] }}</td>
+          <td>{{ candidate['Vote %'] }}</td>
+        </tr>
+        {% endfor %} {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
