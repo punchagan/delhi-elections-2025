@@ -8,7 +8,7 @@
   </head>
   <body>
     <h1>All Candidates - Election Results</h1>
-
+    <p><small>Last Updated: {{ last_updated }}</small></p>
     {% for constituency, candidates in results.items() %}
     <div class="constituency">
       <h2>{{ constituency }}</h2>

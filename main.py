@@ -2,10 +2,8 @@ import aiohttp
 import asyncio
 import json
 from bs4 import BeautifulSoup
-import json
-import os
 from jinja2 import Environment, FileSystemLoader
-
+from datetime import datetime
 
 # Headers to mimic a real browser request
 HEADERS = {
@@ -110,8 +108,9 @@ async def main():
 def generate_independent_html(data, output_file="independent_candidates.html"):
     """Generates an HTML file listing only independent candidates across all constituencies."""
     env = Environment(loader=FileSystemLoader("templates"))
+    last_updated = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     template = env.get_template("independent_template.html")
-    html_content = template.render(candidates=data)
+    html_content = template.render(candidates=data, last_updated=last_updated)
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(html_content)
 
@@ -121,8 +120,9 @@ def generate_independent_html(data, output_file="independent_candidates.html"):
 def generate_all_results_html(data, output_file="all_candidates.html"):
     """Generates an HTML file listing all candidates by constituency."""
     env = Environment(loader=FileSystemLoader("templates"))
+    last_updated = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     template = env.get_template("all_candidates_template.html")
-    html_content = template.render(results=data)
+    html_content = template.render(results=data, last_updated=last_updated)
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(html_content)
 
